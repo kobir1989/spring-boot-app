@@ -20,7 +20,7 @@ public class ProductEntity {
     private String title;
     private String description;
     private Double price;
-    private Double isActive;
+    private Boolean isActive;
     private Date createdAt;
     private Date updatedAt;
 
