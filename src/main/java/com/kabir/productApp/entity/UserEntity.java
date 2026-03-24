@@ -1,4 +1,4 @@
-package com.kabir.productApp.entities;
+package com.kabir.productApp.entity;
 
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
@@ -9,24 +9,31 @@ import java.util.Date;
 
 @Entity
 @Data
-@NoArgsConstructor
 @AllArgsConstructor
-@Table(name = "product")
-public class ProductEntity {
+@NoArgsConstructor
+@Table(name = "users")
+public class UserEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    private String title;
-    private String description;
-    private Double price;
-    private Boolean isActive;
+    private String fullName;
+
+    @Column(unique = true, nullable = false)
+    private String email;
+    private String phoneNumber;
+    private String password;
+
+    private String address;
+    private String city;
+    private String state;
+    private String zipCode;
+    private String country;
+
+    private String role;
+    private String status;
     private Date createdAt;
     private Date updatedAt;
-
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "category_id")
-    private CategoryEntity category;
 
     @PrePersist
     protected void onCreate() {

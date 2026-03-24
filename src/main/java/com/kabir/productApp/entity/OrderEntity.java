@@ -1,23 +1,30 @@
-package com.kabir.productApp.entities;
-
+package com.kabir.productApp.entity;
 
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.math.BigDecimal;
 import java.util.Date;
 
 @Entity
 @Data
-@NoArgsConstructor
 @AllArgsConstructor
-@Table(name = "category")
-public class CategoryEntity {
+@NoArgsConstructor
+@Table(name = "orders")
+public class OrderEntity {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    private String name;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "user_id")
+    private UserEntity user;
+
+    private BigDecimal price;
+    private String status;
     private Date createdAt;
     private Date updatedAt;
 

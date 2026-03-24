@@ -1,4 +1,4 @@
-package com.kabir.productApp.entities;
+package com.kabir.productApp.entity;
 
 import jakarta.persistence.*;
 import lombok.*;
